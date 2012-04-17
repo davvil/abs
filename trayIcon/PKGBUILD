@@ -8,8 +8,8 @@ url="https://github.com/davvil/trayIcon"
 license=('GPL')
 depends=('python' 'pygtk')
 
-#_gitroot=git://github.com/davvil/trayIcon.git
-_gitroot=/home/david/src/trayIcon/
+_gitroot=git://github.com/davvil/trayIcon.git
+#_gitroot=/home/david/src/trayIcon/
 _gitname=trayIcon
 
 build() {
