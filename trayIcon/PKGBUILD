@@ -1,0 +1,36 @@
+# Maintainer: David Vilar <davvil@gmail.com>
+pkgname=trayIcon-git
+pkgver=20120417
+pkgrel=1
+pkgdesc="A general purpose, lightweight tray notification program"
+arch=('any')
+url="https://github.com/davvil/trayIcon"
+license=('GPL')
+depends=('python' 'pygtk')
+
+#_gitroot=git://github.com/davvil/trayIcon.git
+_gitroot=/home/david/src/trayIcon/
+_gitname=trayIcon
+
+build() {
+  cd "$srcdir"
+  msg "Connecting to GIT server...."
+
+  if [[ -d "$_gitname" ]]; then
+    cd "$_gitname" && git pull origin
+    msg "The local files are updated."
+  else
+    git clone "$_gitroot" "$_gitname"
+    cd $_gitname
+  fi
+
+  msg "GIT checkout done or server timeout"
+  msg "Starting build..."
+}
+
+package() {
+  cd "$srcdir/$_gitname/"
+  ./install.sh "$pkgdir" "/usr"
+}
+
+# vim:set ts=2 sw=2 et:

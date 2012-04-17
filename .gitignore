@@ -1,0 +1,5 @@
+.*.swp
+.history
+pkg/
+src/
+*.pkg.tar.xz
