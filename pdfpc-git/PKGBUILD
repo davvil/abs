@@ -1,17 +1,17 @@
 # Maintainer: David Vilar <davvil@gmail.com>
-pkgname=pdf-presenter-console-davvil-git
-pkgver=20120203
+pkgname=pdfpc-git
+pkgver=20120510
 pkgrel=1
-pkgdesc="Presentation viewer for PDF files including Keyjnote like multi-monitor support."
+pkgdesc="A presenter console with multi-monitor support for PDF files"
 arch=('i686' 'x86_64')
-url="http://westhoffswelt.de/projects/pdf_presenter_console.html"
+url="http://davvil.github.com/pdfpc"
 license=('GPL')
-depends=('poppler-glib' 'librsvg')
-makedepends=('git' 'cmake>=2.6' 'vala>=0.11')
-conflicts=(pdf_presenter_console)
+depends=('gtk2' 'poppler-glib' 'librsvg')
+makedepends=('git' 'cmake>=2.6' 'vala>=0.16')
+conflicts=('pdfpc')
 
-_gitroot=git://github.com/davvil/Pdf-Presenter-Console.git
-_gitname=Pdf-Presenter-Console
+_gitroot=git://github.com/davvil/pdfpc.git
+_gitname=pdfpc
 
 build() {
   cd "$srcdir"
@@ -32,7 +32,7 @@ build() {
 
   [[ -d build ]] || mkdir build
   cd build
-  cmake -DCMAKE_INSTALL_PREFIX="/usr/" ../
+  cmake -DCMAKE_INSTALL_PREFIX="/usr/" -DCMAKE_BUILD_TYPE=Release ../ 
   make
   make DESTDIR="$pkgdir" install
 }
