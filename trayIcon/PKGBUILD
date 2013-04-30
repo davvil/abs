@@ -1,6 +1,6 @@
 # Maintainer: David Vilar <davvil@gmail.com>
 pkgname=trayIcon-git
-pkgver=20120501
+pkgver=20120823
 pkgrel=1
 pkgdesc="A general purpose, lightweight tray notification program"
 arch=('any')
