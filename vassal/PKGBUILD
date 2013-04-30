@@ -32,6 +32,9 @@ package() {
   mkdir -p $destdir
   cp -r doc lib $destdir
 
+  # Fix for a small bug in 3.1.20
+  chmod a+r $destdir/lib/Vengine.jar
+
   mkdir -p $pkgdir/usr/bin
   cat << EOF > $pkgdir/usr/bin/vassal
 #!/bin/bash
